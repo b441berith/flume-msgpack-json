@@ -10,7 +10,7 @@ Build a jar file
 mvn package
 ```
 
-Put the created flume-msgpack-json-<version>.jar file to Flume lib folder.
+Put the created flume-msgpack-json-1.0.0.jar file to Flume lib folder.
 Also put the following jars:
 
 - msgpack-core-0.8.3.jar
@@ -22,6 +22,6 @@ Add the following lines to your Flume configuration:
 
 ```
 agent.sources.kafkaSource.interceptors = i1
-agent.sources.kafkaSource.interceptors.i1.type = org.apache.flume.MessagePackToJSONInterceptor
+agent.sources.kafkaSource.interceptors.i1.type = org.apache.flume.MessagePackToJSONInterceptor$Builder
 agent.sources.kafkaSource.interceptors.i1.preserveExisting = false
 ```

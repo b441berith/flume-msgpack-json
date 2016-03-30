@@ -55,4 +55,14 @@ public class MessagePackToJSONInterceptor implements Interceptor {
 
     public void close() {
     }
+
+    public static class Builder implements Interceptor.Builder {
+        public Interceptor build() {
+            return new MessagePackToJSONInterceptor();
+        }
+
+        public void configure(Context context) {
+
+        }
+    }
 }
