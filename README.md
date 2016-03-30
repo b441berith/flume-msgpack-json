@@ -17,6 +17,7 @@ Also put the following jars:
 - jackson-dataformat-msgpack-0.8.3.jar
 - jackson-databind-2.7.1.jar
 - log4j-1.2.17.jar
+- jackson-annotations-2.7.1.jar
 
 Add the following lines to your Flume configuration:
 
