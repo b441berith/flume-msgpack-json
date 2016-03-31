@@ -14,10 +14,13 @@ Put the created flume-msgpack-json-1.0.0.jar file to Flume lib folder.
 Also put the following jars:
 
 - msgpack-core-0.8.3.jar
+- jackson-core-2.7.1.jar
 - jackson-dataformat-msgpack-0.8.3.jar
 - jackson-databind-2.7.1.jar
 - log4j-1.2.17.jar
 - jackson-annotations-2.7.1.jar
+
+Delete previous versions of jars mentioned above if needed
 
 Add the following lines to your Flume configuration:
 
