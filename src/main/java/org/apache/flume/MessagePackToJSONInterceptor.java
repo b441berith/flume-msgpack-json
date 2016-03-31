@@ -15,7 +15,6 @@ import java.util.List;
 public class MessagePackToJSONInterceptor implements Interceptor {
     private final Logger log = Logger.getLogger(MessagePackToJSONInterceptor.class);
 
-    public static final byte[] NEWLINE_BYTES = "\n".getBytes();
     private static final TypeReference<Object> typeReference = new TypeReference<Object>() {};
 
     private ObjectMapper msgpMapper;
@@ -28,7 +27,6 @@ public class MessagePackToJSONInterceptor implements Interceptor {
 
     public Event intercept(Event event) {
         InputStream is = new ByteArrayInputStream(event.getBody());
-        StringWriter stringWriter = new StringWriter();
         ByteArrayOutputStream os = new ByteArrayOutputStream();
         try {
             JsonParser parser = msgpMapper.getFactory().createParser(is);
@@ -36,7 +34,6 @@ public class MessagePackToJSONInterceptor implements Interceptor {
             while (objectIterator.hasNext()) {
                 Object next = objectIterator.next();
                 jsonMapper.writeValue(os, next);
-                os.write(NEWLINE_BYTES);
             }
             event.setBody(os.toByteArray());
         } catch (IOException e) {
