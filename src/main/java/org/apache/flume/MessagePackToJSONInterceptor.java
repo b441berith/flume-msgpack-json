@@ -48,7 +48,7 @@ public class MessagePackToJSONInterceptor implements Interceptor {
         }
         List<Event> result = new ArrayList<Event>(list.size());
         for (int i = 0; i < list.size(); i++) {
-            result.add(intercept(result.get(i)));
+            result.add(intercept(list.get(i)));
         }
         return result;
     }
