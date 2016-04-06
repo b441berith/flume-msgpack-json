@@ -1,6 +1,7 @@
 # flume-msgpack-json
 
 Flume interceptor to convert a stream of MessagePack events to JSON events.
+Supports both uncompressed and GZIP streams + multiple msgpack records per event.
 
 ## Usage
 
