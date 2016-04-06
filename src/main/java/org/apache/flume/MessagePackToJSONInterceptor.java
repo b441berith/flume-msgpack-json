@@ -49,7 +49,9 @@ public class MessagePackToJSONInterceptor implements Interceptor {
             while (objectIterator.hasNext()) {
                 Object next = objectIterator.next();
                 jsonMapper.writeValue(os, next);
-                os.write(NEW_LINE_BYTES);
+                if (objectIterator.hasNext()) {
+                    os.write(NEW_LINE_BYTES);
+                }
             }
             event.setBody(os.toByteArray());
         } catch (IOException e) {
