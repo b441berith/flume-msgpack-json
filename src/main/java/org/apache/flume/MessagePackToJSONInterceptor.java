@@ -49,7 +49,12 @@ public class MessagePackToJSONInterceptor implements Interceptor {
             while (objectIterator.hasNext()) {
                 Object next = objectIterator.next();
                 jsonMapper.writeValue(os, next);
-                if (objectIterator.hasNext()) {
+                boolean hasMoreRows = false;
+                try {
+                    hasMoreRows = objectIterator.hasNext();
+                } catch (Exception ignored) {
+                }
+                if (hasMoreRows) {
                     os.write(NEW_LINE_BYTES);
                 }
             }
